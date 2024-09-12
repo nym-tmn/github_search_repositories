@@ -1,0 +1,47 @@
+@import '../../styles/fonts.scss';
+
+.header {
+	grid-area: header;
+	background-color: rgba(0, 131, 143, 1);
+	position: fixed;
+	top: 0;
+	z-index: 999;
+	width: 1440px;
+	height: 80px;
+
+	.searchForm {
+		display: grid;
+		grid-template-areas: 'searchBar button'
+			'error error';
+		grid-template-columns: 912px 105px;
+		grid-gap: 8px;
+		margin: 0px 0px 0px 32px;
+		height: 100%;
+		align-content: center;
+
+		.searchBar {
+			grid-area: searchBar;
+			height: 42px;
+			border-radius: 4px;
+			padding: 0px 16px;
+			border: none;
+			background-color: rgba(242, 242, 242, 1);
+			font-family: $font-main;
+			font-size: 14px;
+			letter-spacing: 0.17px;
+			outline: none;
+		}
+
+		.searchBar::placeholder {
+			font-style: italic;
+		}
+
+		.searchButton {
+			grid-area: button;
+		}
+
+		.error {
+			grid-area: error;
+		}
+	}
+}

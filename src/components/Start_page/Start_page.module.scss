@@ -1,0 +1,15 @@
+@import '../../styles/fonts.scss';
+
+.startPageContainer {
+	grid-area: mainContent;
+	display: grid;
+	align-content: center;
+	justify-content: center;
+}
+
+.startPageStyles {
+	font-family: $font-main;
+	font-size: 46px;
+	color: rgba(79, 79, 79, 1);
+	letter-spacing: 0.17px;
+}

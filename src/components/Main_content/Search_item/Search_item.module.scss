@@ -1,0 +1,31 @@
+.searchItemContainer {
+	display: grid;
+	grid-area: searchItem;
+	background-color: rgb(242, 242, 242);
+	padding: 24px 0px 0px 24px;
+	color: rgba(0, 0, 0, 0.87);
+
+	h2 {
+		font-weight: 400;
+		font-size: 32px;
+		line-height: 40px;
+	}
+
+	p {
+		padding: 16px 0px 0px 0px;
+	}
+
+	small {
+		display: block;
+		padding: 24px 0px 0px 0px;
+		font-size: 14px;
+		line-height: 20px;
+	}
+
+	h3 {
+		justify-self: center;
+		align-self: center;
+		font-size: 14px;
+		font-weight: 400;
+	}
+}
