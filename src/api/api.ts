@@ -38,7 +38,7 @@ export const getRepositories = async (searchValue: string, endCursorValue: strin
 	const options = {
 		method: 'POST',
 		headers: {
-			"Authorization": "bearer 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",
+			"Authorization": "bearer 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",
 		},
 		body: JSON.stringify({ query })
 	};
