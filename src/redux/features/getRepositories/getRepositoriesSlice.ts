@@ -75,8 +75,6 @@ export const fetchRepositories = createAsyncThunk(
 			}
 
 			const data = await response.json() as RequestDataType;
-			console.log(data);
-			
 			const { repositories, totalRepositoriesCount, pageInfo } = data.data.search;
 			return { repositories, totalRepositoriesCount, pageInfo };
 

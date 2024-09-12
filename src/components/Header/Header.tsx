@@ -14,6 +14,7 @@ type MainContentPropsType = {
 
 const Header: React.FC<MainContentPropsType> = ({ setIsStarted }) => {
 
+	// ----Данная часть кода предназначена для использования функционала компонента "PopoverComponent"----
 	const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
 
 	const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -26,22 +27,26 @@ const Header: React.FC<MainContentPropsType> = ({ setIsStarted }) => {
 
 	const open = Boolean(anchorEl);
 	const id = open ? 'simple-popover' : undefined;
+	// -------------------------------------------------------------------------------------------------------
+
+	// Применение React hook Form для получения значения из строки поиска "searchValue" который отпраляется в redux и в дальнейшем использутся в качестве query параметра для запроса на сервер
+	const { register, handleSubmit, formState: { errors } } = useForm();
 
 	const dispatch = useAppDispatch();
 
-	const { register, handleSubmit, formState: { errors } } = useForm();
-
-	const searchRepos: SubmitHandler<FieldValues> = (searchFormData: FieldValues) => {
+	const onSearchRepos: SubmitHandler<FieldValues> = (searchFormData: FieldValues) => {
+		const searchValue = searchFormData.search as string;
 		setIsStarted(true)
-		dispatch(setRequestParameter(searchFormData.searchBar));
+		dispatch(setRequestParameter(searchValue));
 	};
+	// -----------------------------------------------------------------------------------------------------------
 
 	return (
 		<div className={styles.header}>
 			<form className={styles.searchForm}
-				onSubmit={handleSubmit(searchRepos)}>
+				onSubmit={handleSubmit(onSearchRepos)}>
 				<input className={styles.searchBar}
-					{...(register('searchBar', {
+					{...(register('search', {
 						required: 'This field is required',
 					}))}
 					placeholder='Введите поисковый запрос'

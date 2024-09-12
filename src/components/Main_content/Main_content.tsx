@@ -23,7 +23,7 @@ const MainContent: React.FC<MainContentPropsType> = ({
 	onPageChange,
 	error,
 }) => {
-
+	// Установка данных элемента таблицы полученных в "SearchItems" для отображения их в "SearchItem"
 	const [rowParams, setRowParams] = useState<RowType>({});
 
 	return (

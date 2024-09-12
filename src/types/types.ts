@@ -1,3 +1,4 @@
+// Типизация данных полученных с сервера
 export type RequestDataType = {
 	data: {
 		search: {
@@ -17,6 +18,7 @@ export type RepositoriesType = {
 	repository: RepositoryType
 }
 
+// Типизация репозитория
 export type RepositoryType = {
 	name: string
 	forkCount: number
@@ -30,6 +32,8 @@ export type RepositoryType = {
 		name: string
 	}
 }
+
+// Типизация данных ошибки
 export type ErrorDataType = {
 	message: string
 	documentation_url: string

@@ -11,6 +11,7 @@ type PopoverComponentPropsType = {
 	errors: FieldErrors<FieldValues>
 }
 
+// Компонент для отображения сообщения об ошибке в Popover
 const PopoverComponent: React.FC<PopoverComponentPropsType> = ({
 	id,
 	anchorEl,

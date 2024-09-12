@@ -37,6 +37,7 @@ type SearchResultsPropsType = {
 	onPageChange: (model: GridPaginationModel) => void;
 }
 
+// Инициализация колонок в таблице MUI DataGrid
 const COLUMNS: GridColDef[] = [
 	{ field: 'name', headerName: 'Название', width: 182.4, resizable: false, sortable: false, disableColumnMenu: true },
 	{ field: 'language', headerName: 'Язык', width: 182.4, resizable: false, sortable: false, disableColumnMenu: true },
@@ -53,13 +54,16 @@ const SearchItems: React.FC<SearchResultsPropsType> = ({
 	totalRepositoriesCount,
 }) => {
 
+	// Получение обновленных переменных page и pageSize из state для осуществления пагинации
 	const { page, pageSize } = useAppSelector(state => state.repositoriesPage)
 
+	// Итеррация по массиву репозиториев и добавление необходимых данных в ряды таблицы MUI DataGrid.
 	let rows: GridRowsProp = [];
 
 	if (repositories) {
 		rows = repositories.map((el: RepositoriesType, index: number) => {
 
+		// Форматирвние даты 
 		const formattedDate = new Date(el.repository.updatedAt).toLocaleDateString();
 
 			return (
@@ -77,7 +81,9 @@ const SearchItems: React.FC<SearchResultsPropsType> = ({
 			)
 		})
 	}
+// -------------------------------------------------------------------------------------------------
 
+// Получение данных элемента таблицы после нажати клавишой мышки
 	const handleRowClick = (params: RowParamsType) => {
 		const { name, description, license } = params.row
 		setRowParams({ name, description, license });
