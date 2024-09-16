@@ -10,4 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        run: ${{ secrets.AUTH_SEARCH_REPOS }}
+        uses: actions/checkout@v2
+
+      - name: Use secret
+        run: |
+          echo "Auth token: ${{ secrets.AUTH_SEARCH_REPOS }}"
