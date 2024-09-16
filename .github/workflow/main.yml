@@ -12,7 +12,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Deploy
-        uses: my/deploy-action@v1
-        with:
-          auth-token: ${{ secrets.AUTH_SEARCH_REPOS }}
+      - name: Use secret
+        run: |
+          echo "Auth token: ${{ secrets.AUTH_SEARCH_REPOS }}"
