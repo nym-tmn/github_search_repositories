@@ -16,3 +16,6 @@ jobs:
         uses: my/deploy-action@v1
         with:
           auth-token: ${{ secrets.AUTH_SEARCH_REPOS }}
+      - name: Set environment variable
+        run: |
+          echo "AUTH_SEARCH_REPOS=${{ secrets.AUTH_SEARCH_REPOS }}" >> $GITHUB_ENV
