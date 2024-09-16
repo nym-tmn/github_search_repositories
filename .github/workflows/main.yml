@@ -10,9 +10,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Deploy
-        uses: my/deploy-action@v1
-        with:
-          auth-token: ${{ secrets.AUTH_SEARCH_REPOS }}
+        run: ${{ secrets.AUTH_SEARCH_REPOS }}
