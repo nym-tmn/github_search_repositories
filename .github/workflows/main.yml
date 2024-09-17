@@ -1,1 +1,17 @@
+name: My Workflow
 
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Use secret
+        run: |
+          echo "Auth token: ${{ secrets.AUTH_SEARCH_REPOS }}"
