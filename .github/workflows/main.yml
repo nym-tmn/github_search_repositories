@@ -1,4 +1,4 @@
-name: My Workflow
+name: My Action
 
 on:
   push:
@@ -6,12 +6,16 @@ on:
       - main
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Use secret
+      - name: Set secret as env var
         run: |
-          echo "Auth token: ${{ secrets.AUTH_SEARCH_REPOS }}"
+          echo "MY_TOKEN=${secrets.MY_TOKEN}" >> $GITHUB_ENV
+
+      - name: Run script
+        run: |
+          echo "My token is: $MY_TOKEN"
