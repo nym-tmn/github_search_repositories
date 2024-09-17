@@ -13,8 +13,6 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Set secret as env var
-        env:
-          REACT_APP_API_KEY: ${{ secrets.AUTH_SEARCH_REPOS }}
         uses: actions/setup-node@v1
         with:
           node-version: 16.x
@@ -26,6 +24,7 @@ jobs:
           git remote set-url origin https://${github_token}@github.com/${repository}
           npm run deploy
         env:
+          REACT_APP_API_KEY: ${{ secrets.AUTH_SEARCH_REPOS }}
           user_name: 'github-actions[bot]'
           user_email: 'github-actions[bot]@users.noreply.github.com'
           github_token: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
