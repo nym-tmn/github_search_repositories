@@ -14,8 +14,8 @@ jobs:
 
       - name: Set secret as env var
         run: |
-          echo "MY_TOKEN=${secrets.MY_TOKEN}" >> $GITHUB_ENV
+          echo "API_KEY=${secrets.AUTH_SEARCH_REPOS}" >> $GITHUB_ENV
 
       - name: Run script
         run: |
-          echo "My token is: $MY_TOKEN"
+          echo "My token is: $API_KEY"
