@@ -13,9 +13,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Set secret as env var
-        run: |
-          echo "API_KEY=${secrets.AUTH_SEARCH_REPOS}" >> $GITHUB_ENV
-
-      - name: Run script
+        env:
+          API_KEY: ${{ secrets.AUTH_SEARCH_REPOS }}
         run: |
           echo "My token is: $API_KEY"
