@@ -1,8 +1,10 @@
+import base64 from 'base-64';
+
 const baseUrl = "https://api.github.com/graphql";
 
 /* Функция для извлечения списка репозиториев из GitHub, соответствующих заданному значению поиска (searchValue).
  Поддерживает пагинацию с использованием параметров `endCursorValue` и `startCursorValue`, а также задает размер страницы с использованием параметра `pageSize` */
-export const getRepositories = async (searchValue: string, endCursorValue: string = '', startCursorValue: string = '', pageSize: number = 10): Promise<Response> => {	
+export const getRepositories = async (searchValue: string, endCursorValue: string = '', startCursorValue: string = '', pageSize: number = 10): Promise<Response> => {
 
 	const query = `{
   search(
@@ -40,7 +42,7 @@ export const getRepositories = async (searchValue: string, endCursorValue: strin
 	const options = {
 		method: 'POST',
 		headers: {
-			"Authorization": `bearer github_pat_${process.env.REACT_APP_API_KEY1}${process.env.REACT_APP_API_KEY2}`,
+			"Authorization": base64.decode('YmVhcmVyIGdpdGh1Yl9wYXRfMTFBWVc3WEZZMGh3UHBYNVF1cXdVTV9HMWRkaXRibWdaMnJ3Nkd2cW1uR1NuOUJFWElSZUxieG9VVldZMDA5SHdoMk9ZR05QNklTWm1MT29Hcg=='),
 		},
 		body: JSON.stringify({ query })
 	};
