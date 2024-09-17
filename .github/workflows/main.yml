@@ -1,0 +1,19 @@
+name: My Action
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set secret as env var
+        env:
+          API_KEY: ${{ secrets.AUTH_SEARCH_REPOS }}
+        run: |
+          echo "My token is: $API_KEY"
