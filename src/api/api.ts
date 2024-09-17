@@ -40,7 +40,7 @@ export const getRepositories = async (searchValue: string, endCursorValue: strin
 	const options = {
 		method: 'POST',
 		headers: {
-			"Authorization": `bearer ${process.env.REACT_APP_API_KEY}`,
+			"Authorization": `bearer github_pat_${process.env.REACT_APP_API_KEY1}${process.env.REACT_APP_API_KEY2}`,
 		},
 		body: JSON.stringify({ query })
 	};
